@@ -2,26 +2,26 @@
 
 Feature: Cadastro de usuário
 
-  Scenario: Cadastro com todos os campos válidos
-    Given que o usuário está na página de cadastro
-    When ele preenche todos os campos obrigatórios com dados válidos
-    And clica no botão de "Cadastrar"
-    Then ele deve ser redirecionado para a página de boas-vindas
+  Cenário: Cadastro com todos os campos válidos
+  Dado que o usuário está na página de cadastro
+  Quando ele preenche todos os campos obrigatórios com dados válidos
+  E clica no botão de "Cadastrar"
+  Então ele deve ser redirecionado para a página de boas-vindas
 
-  Scenario: Cadastro com campos inválidos
-    Given que o usuário está na página de cadastro
-    When ele preenche o campo "Email" com "email_invalido"
-    And clica no botão de "Cadastrar"
-    Then ele deve ver a mensagem "Email inválido, insira um email válido"
+  Cenário: Cadastro com campos inválidos
+  Dado que o usuário está na página de cadastro
+  Quando ele preenche o campo "Email" com "email_invalido"
+  E clica no botão de "Cadastrar"
+  Então ele deve ver a mensagem "Email inválido, insira um email válido"
 
   Scenario Outline: Campos obrigatórios não preenchidos
-    Given que o usuário está na página de cadastro
-    When ele não preenche o campo "<campo>"
-    And clica no botão de "Cadastrar"
-    Then ele deve ver a mensagem "O campo <campo> é obrigatório"
+      Dado que o usuário está na página de cadastro
+      Quando ele não preenche o campo "<campo>"
+      E clica no botão de "Cadastrar"
+      Então ele deve ver a mensagem "O campo <campo> é obrigatório"
 
-    Examples:
-      | campo      |
-      | Nome       |
-      | Email      |
-      | Senha      |
+      Exemplos:
+      | campo |
+      | Nome  |
+      | Email |
+      | Senha |
